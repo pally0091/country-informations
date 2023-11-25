@@ -4,14 +4,18 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
+interface Country {
+  region: string;
+}
+
 const regionPage: React.FC = () => {
-  const [regions, setRegions] = useState([]);
+  const [regions, setRegions] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch("https://restcountries.com/v3.1/all");
-        const countries = await res.json();
+        const countries: Country[] = await res.json();
         const uniqueRegions = Array.from(
           new Set(countries.map((country: any) => country.region))
         );

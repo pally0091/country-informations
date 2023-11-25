@@ -2,6 +2,12 @@
 import Link from "next/link";
 import { SetStateAction, useEffect, useState } from "react";
 
+interface Country {
+  name: {
+    common: string;
+  };
+  cca2: string;
+}
 export default function Home() {
   // Example of featured countries
   const featuredCountries = [
@@ -10,8 +16,8 @@ export default function Home() {
     { name: "United Kingdom", code: "GB" },
     { name: "Australia", code: "AU" },
   ];
-  const [countries, setCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +43,7 @@ export default function Home() {
     country.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   const searchResultCountries = countries.filter((country) =>
-    country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+    country?.name.common.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
     <>
@@ -80,10 +86,10 @@ export default function Home() {
           <h3 className="text-lg font-semibold mb-4">Search Results</h3>
           <ul className="h-56 overflow-y-scroll">
             {searchResultCountries.map((country) => (
-              <li key={country.cca2}>
-                <Link href={`/countries/${country.cca2}`}>
+              <li key={country?.cca2}>
+                <Link href={`/countries/${country?.cca2}`}>
                   <p className="text-indigo-600 hover:underline">
-                    {country.name.common}
+                    {country?.name.common}
                   </p>
                 </Link>
               </li>
