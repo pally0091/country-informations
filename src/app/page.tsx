@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { SetStateAction, useEffect, useState } from "react";
+import { FallingLines } from "react-loader-spinner";
 
 interface Country {
   name: {
@@ -18,6 +19,7 @@ export default function Home() {
   ];
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +27,7 @@ export default function Home() {
         const response = await fetch("https://restcountries.com/v3.1/all");
         const data = await response.json();
         setCountries(data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -84,17 +87,25 @@ export default function Home() {
         {/* Search Results Section */}
         <div className="mt-8 text-center">
           <h3 className="text-lg font-semibold mb-4">Search Results</h3>
-          <ul className="h-56 overflow-y-scroll">
-            {searchResultCountries.map((country) => (
-              <li key={country?.cca2}>
-                <Link href={`/countries/${country?.cca2}`}>
-                  <p className="text-indigo-600 hover:underline">
-                    {country?.name.common}
-                  </p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {loading ? (
+            <FallingLines
+              color="#3c3790"
+              width="100"
+              visible={true}
+            />
+          ) : (
+            <ul className="h-56 overflow-y-scroll">
+              {searchResultCountries.map((country) => (
+                <li key={country?.cca2}>
+                  <Link href={`/countries/${country?.cca2}`}>
+                    <p className="text-indigo-600 hover:underline">
+                      {country?.name.common}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </>
