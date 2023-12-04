@@ -27,13 +27,15 @@ const RegionPage: React.FC<RegionPageProps> = ({ params }: any) => {
         Countries of <span className="text-indigo-500">{params.id}</span> region
       </h3>
       {loading ? (
-        <FallingLines
-          color="#3c3790"
-          width="100"
-          visible={true}
-        />
+        <div className="flex mt-10 items-center justify-center">
+          <FallingLines
+            color="#3c3790"
+            width="100"
+            visible={true}
+          />
+        </div>
       ) : (
-        <div>
+        <div className="mt-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {countries.map((country: any) => (
             <CountryCard
               key={country.cca2}
