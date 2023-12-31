@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main>
-          <div className="fixed w-full">
+          <div className="fixed z-10 w-full">
             <Navbar />
           </div>
           {children}

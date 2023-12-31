@@ -9,7 +9,7 @@ interface CountryCardProps {
 const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
   const { name, status, cca2, region, subregion, flags } = country;
   return (
-    <div className="border border-indigo-500">
+    <div className="border border-indigo-500 relative h-[220px]">
       <div className="flex flex-row  justify-between p-2">
         <div className="w-44 h-36 border p-1">
           <img
@@ -26,7 +26,7 @@ const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
         </div>
       </div>
       <Link href={`/countries/${cca2}`}>
-        <button className="bg-indigo-600 text-center text-white w-full hover:bg-indigo-500 transition-all duration-300">
+        <button className="bg-indigo-600 text-center text-white w-full hover:bg-indigo-500 transition-all duration-300 absolute bottom-0">
           View Details
         </button>
       </Link>
