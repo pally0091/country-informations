@@ -22,6 +22,18 @@ export default function RootLayout({
             <Navbar />
           </div>
           {children}
+          <footer className="bg-indigo-800 p-1 text-white fixed bottom-0 w-full">
+            <p className="text-center">
+              &copy; 2024 Your Company. All rights reserved. | Powered by{" "}
+              <a
+                className="underline"
+                href="https://restcountries.com/"
+                target="_blank"
+              >
+                REST Countries
+              </a>
+            </p>
+          </footer>
         </main>
       </body>
     </html>
