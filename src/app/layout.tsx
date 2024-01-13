@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
+import { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: "Country Informations",
@@ -11,18 +12,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  isDarkMode,
 }: {
   children: React.ReactNode;
-  isDarkMode: any;
 }) {
   return (
-    <html
-      lang="en"
-      className={isDarkMode ? "dark" : ""}
-    >
-      <body className="bg-white dark:bg-gray-900">
-        <main>
+    <html lang="en">
+      <body>
+        <main className="bg-white dark:bg-gray-900">
           <div className="fixed z-10 w-full">
             <Navbar />
           </div>
