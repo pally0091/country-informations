@@ -23,7 +23,7 @@ const RegionPage: React.FC<RegionPageProps> = ({ params }: any) => {
 
   return (
     <div className="pt-16">
-      <h3 className="text-lg font-semibold mb-4 text-center my-5">
+      <h3 className="text-lg dark:text-white font-semibold mb-4 text-center my-5">
         Countries of <span className="text-indigo-500">{params.id}</span> region
       </h3>
       {loading ? (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import React from "react";
+import DarkToggle from "./DarkToggle";
 
 const Navbar: React.FC = () => {
   const router = usePathname();
@@ -57,6 +58,9 @@ const Navbar: React.FC = () => {
           About
         </p>
       </Link>
+      <div className="flex justify-end">
+        <DarkToggle />
+      </div>
     </div>
   );
 };

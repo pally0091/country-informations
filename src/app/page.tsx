@@ -51,10 +51,10 @@ export default function Home() {
   return (
     <>
       <div className="w-full py-24 flex flex-col justify-center items-center">
-        <h2 className="text-indigo-600 font-bold text-3xl md:text-4xl lg:text-5xl">
+        <h2 className="text-indigo-600 dark:text-indigo-300 font-bold text-3xl md:text-4xl lg:text-5xl">
           Countries Informations
         </h2>
-        <h4 className="text-indigo-900 text-lg md:text-xl lg:text-xl">
+        <h4 className="text-indigo-900 dark:text-indigo-400 text-lg md:text-xl lg:text-xl">
           Provided by Rest country API
         </h4>
 
@@ -71,12 +71,14 @@ export default function Home() {
 
         {/* Featured Countries Section */}
         <div className="mt-8 text-center">
-          <h3 className="text-lg font-semibold mb-4">Featured Countries</h3>
+          <h3 className="text-lg font-semibold mb-4 dark:text-white">
+            Featured Countries
+          </h3>
           <ul>
             {filteredCountries.map((country) => (
               <li key={country.code}>
                 <Link href={`/countries/${country.code}`}>
-                  <p className="text-indigo-600 hover:underline">
+                  <p className="text-indigo-600 dark:text-indigo-300 hover:underline">
                     {country.name}
                   </p>
                 </Link>
@@ -86,7 +88,9 @@ export default function Home() {
         </div>
         {/* Search Results Section */}
         <div className="mt-8 text-center">
-          <h3 className="text-lg font-semibold mb-4">Search Results</h3>
+          <h3 className="text-lg font-semibold dark:text-white mb-4">
+            Search Results
+          </h3>
           {loading ? (
             <FallingLines
               color="#3c3790"
@@ -98,7 +102,7 @@ export default function Home() {
               {searchResultCountries.map((country) => (
                 <li key={country?.cca2}>
                   <Link href={`/countries/${country?.cca2}`}>
-                    <p className="text-indigo-600 hover:underline">
+                    <p className="text-indigo-600 dark:text-indigo-300 hover:underline">
                       {country?.name.common}
                     </p>
                   </Link>

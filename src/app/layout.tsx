@@ -11,12 +11,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  isDarkMode,
 }: {
   children: React.ReactNode;
+  isDarkMode: any;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html
+      lang="en"
+      className={isDarkMode ? "dark" : ""}
+    >
+      <body className="bg-white dark:bg-gray-900">
         <main>
           <div className="fixed z-10 w-full">
             <Navbar />

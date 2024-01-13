@@ -36,7 +36,7 @@ const regionPage: React.FC = () => {
             key={region}
             href={`/regions/${region}`}
           >
-            <li className="border my-1 border-indigo-500 text-indigo-700 text-lg hover:bg-indigo-500 hover:text-white transition-all duration-500">
+            <li className="border my-1 border-indigo-500 text-indigo-700 text-lg hover:bg-indigo-500 hover:text-white transition-all duration-500 dark:bg-black dark:text-indigo-200 dark:hover:bg-indigo-200 dark:hover:text-black">
               {region}
             </li>
           </Link>
