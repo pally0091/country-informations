@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import { CiDark, CiLight } from "react-icons/ci";
 
 const DarkToggle: React.FC = () => {
+  const initialDarkMode = sessionStorage.getItem("darkMode") === "true";
   const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(() => {
+    sessionStorage.setItem("darkMode", JSON.stringify(isDarkMode));
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
