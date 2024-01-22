@@ -29,7 +29,9 @@ const regionPage: React.FC = () => {
   // console.log(regions);
   return (
     <div className="pt-16 text-center">
-      <h3 className="text-xl font-semibold mb-4">List of Regions:</h3>
+      <h3 className="text-xl font-semibold mb-4 dark:text-white">
+        List of Regions:
+      </h3>
       <ul className="w-[95%] md:w-2/5 lg:w-1/5 mx-auto">
         {regions.map((region) => (
           <Link

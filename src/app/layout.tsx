@@ -22,7 +22,7 @@ export default function RootLayout({
           <div className="fixed z-10 w-full">
             <Navbar />
           </div>
-          {children}
+          <div className="max-w-[1280px] mx-auto">{children}</div>
           <footer className="bg-indigo-800 p-1 text-white fixed bottom-0 w-full">
             <p className="text-center">
               &copy; 2024 Your Company. All rights reserved. | Powered by{" "}
