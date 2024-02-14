@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-white dark:bg-gray-900">
         <main>
-          <div className="fixed z-10 w-full">
+          <div className="fixed z-10 w-full top-0">
             <Navbar />
           </div>
           <div className="max-w-[1280px] mx-auto">{children}</div>
